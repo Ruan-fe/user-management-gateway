@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserEndpoint {
 
-    @PostMapping("/api/users/authenticate")
+    public static final String USERS_AUTHENTICATE_RESOURCE_PATH = "/api/users/authenticate";
+
+    @PostMapping(USERS_AUTHENTICATE_RESOURCE_PATH)
     public void authenticate() {
         System.out.printf("Autenticado!");
     }
+
 }
