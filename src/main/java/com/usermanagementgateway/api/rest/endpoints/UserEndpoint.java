@@ -22,8 +22,8 @@ public class UserEndpoint {
 
     @PostMapping(USERS_AUTHENTICATE_RESOURCE_PATH)
     public ResponseEntity<AccessResponseModel> authenticate(@RequestBody UserAuthenticateRequestModel requestModel) throws Exception {
-        AccessResponseModel accessResponseDTO = authenticateService.authenticate(requestModel);
-        return ResponseEntity.ok(accessResponseDTO);
+        AccessResponseModel accessResponseModel = authenticateService.authenticate(requestModel);
+        return ResponseEntity.ok(accessResponseModel);
     }
 
 }

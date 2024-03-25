@@ -16,9 +16,9 @@ import java.util.Objects;
 @Repository
 public class AuthenticationKCRepository {
 
-    @Value("${api.keycloak.client-id}")
+    @Value("${api.keycloak.client.id}")
     private String CLIENT_ID;
-    @Value("${api.keycloak.grant-type}")
+    @Value("${api.keycloak.grant.type}")
     private String GRANT_TYPE;
     @Value("${api.keycloak.authenticate.url}")
     private String URL;

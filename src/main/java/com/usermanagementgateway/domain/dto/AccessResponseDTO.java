@@ -1,9 +1,24 @@
 package com.usermanagementgateway.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AccessResponseDTO {
+    @JsonProperty("access_token")
     private String accessToken;
+    @JsonProperty("refresh_token")
     private String refreshToken;
+    @JsonProperty("expires_in")
+    private String expiresIn;
+    @JsonProperty("refresh_expires_in")
+    private String refreshExpiresIn;
+    @JsonProperty("token_type")
     private String tokenType;
+    @JsonProperty("not-before-policy")
+    private Integer notBeforePolicy;
+    @JsonProperty("session_state")
+    private String sessionState;
+    @JsonProperty("scope")
+    private String scope;
 
     public String getAccessToken() {
         return accessToken;
@@ -21,11 +36,51 @@ public class AccessResponseDTO {
         this.refreshToken = refreshToken;
     }
 
+    public String getExpiresIn() {
+        return expiresIn;
+    }
+
+    public void setExpiresIn(String expiresIn) {
+        this.expiresIn = expiresIn;
+    }
+
+    public String getRefreshExpiresIn() {
+        return refreshExpiresIn;
+    }
+
+    public void setRefreshExpiresIn(String refreshExpiresIn) {
+        this.refreshExpiresIn = refreshExpiresIn;
+    }
+
     public String getTokenType() {
         return tokenType;
     }
 
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
+    }
+
+    public Integer getNotBeforePolicy() {
+        return notBeforePolicy;
+    }
+
+    public void setNotBeforePolicy(Integer notBeforePolicy) {
+        this.notBeforePolicy = notBeforePolicy;
+    }
+
+    public String getSessionState() {
+        return sessionState;
+    }
+
+    public void setSessionState(String sessionState) {
+        this.sessionState = sessionState;
+    }
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
     }
 }
