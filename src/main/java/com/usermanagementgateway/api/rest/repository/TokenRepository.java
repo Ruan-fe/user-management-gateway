@@ -2,7 +2,7 @@ package com.usermanagementgateway.api.rest.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.usermanagementgateway.api.rest.request.UserAuthenticateRequestModel;
-import com.usermanagementgateway.domain.dto.AccessResponseDTO;
+import com.usermanagementgateway.domain.dto.TokenResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Objects;
 
 @Repository
-public class AuthenticationKCRepository {
+public class TokenRepository {
 
     @Value("${api.keycloak.client.id}")
     private String CLIENT_ID;
@@ -23,7 +23,7 @@ public class AuthenticationKCRepository {
     @Value("${api.keycloak.authenticate.url}")
     private String URL;
 
-    public AccessResponseDTO get(UserAuthenticateRequestModel requestModel) throws Exception {
+    public TokenResponseDTO get(UserAuthenticateRequestModel requestModel) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -46,7 +46,7 @@ public class AuthenticationKCRepository {
         HttpStatus responseCode = (HttpStatus) response.getStatusCode();
         if (Objects.equals(HttpStatus.OK, responseCode)) {
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.convertValue(response.getBody(), AccessResponseDTO.class);
+            return objectMapper.convertValue(response.getBody(), TokenResponseDTO.class);
         } else {
             throw new Exception();
         }

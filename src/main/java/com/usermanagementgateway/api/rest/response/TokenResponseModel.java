@@ -1,9 +1,9 @@
 package com.usermanagementgateway.api.rest.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.usermanagementgateway.domain.dto.AccessResponseDTO;
+import com.usermanagementgateway.domain.dto.TokenResponseDTO;
 
-public class AccessResponseModel {
+public class TokenResponseModel {
     @JsonProperty("access_token")
     private String accessToken;
     @JsonProperty("refresh_token")
@@ -35,7 +35,7 @@ public class AccessResponseModel {
         this.tokenType = tokenType;
     }
 
-    public AccessResponseModel(AccessResponseDTO dto) {
+    public TokenResponseModel(TokenResponseDTO dto) {
         this.accessToken = dto.getAccessToken();
         this.refreshToken = dto.getRefreshToken();
         this.tokenType = dto.getTokenType();
